@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-09-08T10:34:00.690Z</updated>
+  <updated>2024-09-10T08:31:34.932Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="http://example.com/2024/09/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://example.com/2024/09/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</id>
+    <published>2024-09-10T08:20:20.287Z</published>
+    <updated>2024-09-10T08:31:34.932Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="认识微服务"><a href="#认识微服务" class="headerlink" title="认识微服务"></a>认识微服务</h1><h2 id="单体架构"><a href="#单体架构" class="headerlink" title="单体架构"></a>单体架构</h2><p>将业务的所有功能集中在一个项目中开发，打成一个包部署</p><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol><li>架构简单</li><li>部署成本低<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3></li><li>团队协作成本高</li><li>系统发布效率低</li><li>系统可用性差<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2>把单体架构的功能模块拆分成多个独立的项目<h3 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h3></li><li>粒度小： 拆分的项目可以可以只是一个单独的功能</li><li>团队自治</li><li>服务自治</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;认识微服务&quot;&gt;&lt;a href=&quot;#认识微服务&quot; class=&quot;headerlink&quot; title=&quot;认识微服务&quot;&gt;&lt;/a&gt;认识微服务&lt;/h1&gt;&lt;h2 id=&quot;单体架构&quot;&gt;&lt;a href=&quot;#单体架构&quot; class=&quot;headerlink&quot; title=&quot;单体架构&quot;</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>vue3</title>
