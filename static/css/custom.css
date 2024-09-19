@@ -83,8 +83,8 @@
   #article-container figure.highlight .hljs {
     display: block;
     overflow-x: auto;
-    background: #221a0f;
-    color: #d3af86;
+    background: rgb(246 248 250);
+    color: #130a01;
     padding: 0.5em;
   }
   
