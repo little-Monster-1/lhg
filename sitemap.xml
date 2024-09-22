@@ -4,7 +4,7 @@
   <url>
     <loc>http://example.com/2024/09/10/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
     
-    <lastmod>2024-09-19</lastmod>
+    <lastmod>2024-09-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>http://example.com/2024/09/07/vue3/</loc>
     
-    <lastmod>2024-09-19</lastmod>
+    <lastmod>2024-09-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -85,7 +85,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2024-09-19</lastmod>
+    <lastmod>2024-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
