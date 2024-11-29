@@ -189,20 +189,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Springboot/</loc>
-    <lastmod>2024-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/socket/</loc>
-    <lastmod>2024-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/HTML/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -217,6 +203,20 @@
   </url>
   
   <url>
+    <loc>http://example.com/tags/Springboot/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/socket/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/MybatisPlus/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -224,7 +224,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/redis/</loc>
+    <loc>http://example.com/tags/MQ/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -239,6 +239,13 @@
   
   <url>
     <loc>http://example.com/tags/VUE3/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/redis/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -272,13 +279,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>http://example.com/tags/MQ/</loc>
-    <lastmod>2024-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -296,6 +296,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/categories/MQ/</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/categories/redis/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -304,13 +311,6 @@
   
   <url>
     <loc>http://example.com/categories/springcloud/</loc>
-    <lastmod>2024-11-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/categories/MQ/</loc>
     <lastmod>2024-11-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
