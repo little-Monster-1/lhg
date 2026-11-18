@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>酷宅sqs迁移redis</title>
+    <link href="https://lhg.littermonste.top/2026/05/11/working/sqsToredis/"/>
+    <id>https://lhg.littermonste.top/2026/05/11/working/sqsToredis/</id>
+    <published>2026-05-10T16:00:00.000Z</published>
+    <updated>2026-05-10T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Redis-Stream"><a href="#Redis-Stream" class="headerlink" title="Redis Stream"></a>Redis Stream</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-comment">// 使用 Redis Stream 的 AUTOCLAIM 机制，自动从 PENDING 队列中回收“超时未确认”的消息</span><br>AutoClaimResult&lt;String, String&gt; result = stream.autoClaim(<br>        CONSUMER_GROUP,        <span class="hljs-comment">// 消费者组名称（Stream 的消费组，比如 stream-processor）</span><br>        CONSUMER_NAME,         <span class="hljs-comment">// 当前执行 reclaim 的消费者（比如 reclaim-worker）</span><br>        <br>        idleTimeoutMs,         <span class="hljs-comment">// 关键参数：消息在 PENDING 中“空闲多久算超时”</span><br>                              <span class="hljs-comment">// idle_time &gt;= 该值（单位由下面 TimeUnit 决定）才会被回收</span><br>        <br>        TimeUnit.MILLISECONDS, <span class="hljs-comment">// idleTimeoutMs 的时间单位（毫秒/秒等）</span><br>        <br>        startId,               <span class="hljs-comment">// 扫描 PENDING 的起始游标（一般第一次用 &quot;0-0&quot;）</span><br>                              <span class="hljs-comment">// Redis 会从这个位置开始遍历 pending entries list</span><br>        <br>        CLAIM_BATCH_SIZE       <span class="hljs-comment">// 本次最多回收多少条消息（防止一次性处理过多）</span><br>);<br><br><span class="hljs-comment">// ---------------------- 返回结果说明 ----------------------</span><br><br><span class="hljs-comment">// result.getNextId()</span><br><span class="hljs-comment">// → 下一次 AUTOCLAIM 扫描的起点（cursor）</span><br><span class="hljs-comment">// → 如果返回 &quot;0-0&quot;，说明本轮扫描已结束</span><br><br><span class="hljs-comment">// result.getMessages()</span><br><span class="hljs-comment">// → 本次成功被“抢回”的消息列表（从旧 consumer 转移到当前 consumer）</span><br><br><span class="hljs-comment">// result.getDeletedIds()</span><br><span class="hljs-comment">// → 在 PENDING 中已不存在的消息 ID（可能已被 XACK 或删除）</span><br><br></code></pre></td></tr></table></figure><h2 id="idleTimeoutMs"><a href="#idleTimeoutMs" class="headerlink" title="idleTimeoutMs"></a>idleTimeoutMs</h2><p>XADD 写入消息<br>  ↓<br>XREADGROUP 被 consumer1 读到<br>  ↓ idle_time = 0<br>consumer1 开始处理<br>  ↓（没 XACK）<br>时间流逝 30s<br>  ↓ idle_time = 30000ms<br>XAUTOCLAIM 被 reclaim-worker 抢走<br>  ↓ idle_time = 0（重新开始计时）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Redis-Stream&quot;&gt;&lt;a href=&quot;#Redis-Stream&quot; class=&quot;headerlink&quot; title=&quot;Redis Stream&quot;&gt;&lt;/a&gt;Redis Stream&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="小怪兽的工作日记" scheme="https://lhg.littermonste.top/categories/%E5%B0%8F%E6%80%AA%E5%85%BD%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%AE%B0/"/>
+    
+    
+    <category term="工作日记" scheme="https://lhg.littermonste.top/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>酷宅postman培训</title>
     <link href="https://lhg.littermonste.top/2026/05/11/working/%E9%85%B7%E5%AE%85postman%E5%9F%B9%E8%AE%AD/"/>
     <id>https://lhg.littermonste.top/2026/05/11/working/%E9%85%B7%E5%AE%85postman%E5%9F%B9%E8%AE%AD/</id>
@@ -77,30 +101,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;场景&quot;&gt;&lt;a href=&quot;#场景&quot; class=&quot;headerlink&quot; title=&quot;场景&quot;&gt;&lt;/a&gt;场景&lt;/h1&gt;&lt;h2 id=&quot;场景分类&quot;&gt;&lt;a href=&quot;#场景分类&quot; class=&quot;headerlink&quot; title=&quot;场景分类&quot;&gt;&lt;/a&gt;场景分类&lt;/h</summary>
-      
-    
-    
-    
-    <category term="小怪兽的工作日记" scheme="https://lhg.littermonste.top/categories/%E5%B0%8F%E6%80%AA%E5%85%BD%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%AE%B0/"/>
-    
-    
-    <category term="工作日记" scheme="https://lhg.littermonste.top/tags/%E5%B7%A5%E4%BD%9C%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>酷宅sqs迁移redis</title>
-    <link href="https://lhg.littermonste.top/2026/05/11/working/sqsToredis/"/>
-    <id>https://lhg.littermonste.top/2026/05/11/working/sqsToredis/</id>
-    <published>2026-05-10T16:00:00.000Z</published>
-    <updated>2026-05-10T16:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Redis-Stream"><a href="#Redis-Stream" class="headerlink" title="Redis Stream"></a>Redis Stream</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs JAVA"><span class="hljs-comment">// 使用 Redis Stream 的 AUTOCLAIM 机制，自动从 PENDING 队列中回收“超时未确认”的消息</span><br>AutoClaimResult&lt;String, String&gt; result = stream.autoClaim(<br>        CONSUMER_GROUP,        <span class="hljs-comment">// 消费者组名称（Stream 的消费组，比如 stream-processor）</span><br>        CONSUMER_NAME,         <span class="hljs-comment">// 当前执行 reclaim 的消费者（比如 reclaim-worker）</span><br>        <br>        idleTimeoutMs,         <span class="hljs-comment">// 关键参数：消息在 PENDING 中“空闲多久算超时”</span><br>                              <span class="hljs-comment">// idle_time &gt;= 该值（单位由下面 TimeUnit 决定）才会被回收</span><br>        <br>        TimeUnit.MILLISECONDS, <span class="hljs-comment">// idleTimeoutMs 的时间单位（毫秒/秒等）</span><br>        <br>        startId,               <span class="hljs-comment">// 扫描 PENDING 的起始游标（一般第一次用 &quot;0-0&quot;）</span><br>                              <span class="hljs-comment">// Redis 会从这个位置开始遍历 pending entries list</span><br>        <br>        CLAIM_BATCH_SIZE       <span class="hljs-comment">// 本次最多回收多少条消息（防止一次性处理过多）</span><br>);<br><br><span class="hljs-comment">// ---------------------- 返回结果说明 ----------------------</span><br><br><span class="hljs-comment">// result.getNextId()</span><br><span class="hljs-comment">// → 下一次 AUTOCLAIM 扫描的起点（cursor）</span><br><span class="hljs-comment">// → 如果返回 &quot;0-0&quot;，说明本轮扫描已结束</span><br><br><span class="hljs-comment">// result.getMessages()</span><br><span class="hljs-comment">// → 本次成功被“抢回”的消息列表（从旧 consumer 转移到当前 consumer）</span><br><br><span class="hljs-comment">// result.getDeletedIds()</span><br><span class="hljs-comment">// → 在 PENDING 中已不存在的消息 ID（可能已被 XACK 或删除）</span><br><br></code></pre></td></tr></table></figure><h2 id="idleTimeoutMs"><a href="#idleTimeoutMs" class="headerlink" title="idleTimeoutMs"></a>idleTimeoutMs</h2><p>XADD 写入消息<br>  ↓<br>XREADGROUP 被 consumer1 读到<br>  ↓ idle_time = 0<br>consumer1 开始处理<br>  ↓（没 XACK）<br>时间流逝 30s<br>  ↓ idle_time = 30000ms<br>XAUTOCLAIM 被 reclaim-worker 抢走<br>  ↓ idle_time = 0（重新开始计时）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Redis-Stream&quot;&gt;&lt;a href=&quot;#Redis-Stream&quot; class=&quot;headerlink&quot; title=&quot;Redis Stream&quot;&gt;&lt;/a&gt;Redis Stream&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;t</summary>
       
     
     
